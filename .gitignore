@@ -1,0 +1,40 @@
+# ==========================================
+# STM32CubeMX CMake 项目专用 .gitignore
+# ==========================================
+
+# 1. 操作系统缓存文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 2. STM32CubeMX 的备份和零碎文件
+*.mxproject
+*.bak
+# （⚠️ 再次提醒：绝对不能在这里写 *.ioc，.ioc 必须上传）
+
+# 3. CMake 和 GCC 编译输出 (核心需要排除的部分)
+# CMake 通常将所有生成的内容放在 build 目录下
+build/
+# 兼容部分直接在根目录生成 CMake 缓存的情况
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+compile_commands.json
+
+# 4. 编译产生的二进制文件和中间文件（双重保险）
+*.o
+*.d
+*.elf
+*.hex
+*.bin
+*.map
+
+# 5. 开发编辑器配置（假设你用 VSCode）
+# C/C++ 插件的庞大缓存数据库（必须排除）
+.vscode/ipch/
+.vscode/*.db
+# 根据个人需求决定是否排除整个 .vscode 文件夹：
+# 如果你想和别人共享你的 task (编译指令) 和 launch (调试指令)，就保留下面这行注释：
+# .vscode/
+# 如果你不想共享，只想自己用，就把上一行前面的 # 删掉。
